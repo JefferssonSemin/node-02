@@ -23,7 +23,7 @@ class CategoriesRepository implements ICategoriesRepository{
     }
 
     list(): Category[]{
-        return this,this.categories
+        return this.categories
     }
 
     findByName(name:string): Category | undefined{
