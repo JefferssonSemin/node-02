@@ -1,8 +1,8 @@
 import { Request, Response } from "express";
-import { ListSpecificationUseCase } from "./listSpecificationUseCase";
+import { ListSpecificationUseCase } from "./ListSpecificationUseCase";
 
 class ListSpecificationController {
-    constructor(private listSpecificationUseCase:ListSpecificationUseCase) {}
+    constructor(private listSpecificationUseCase: ListSpecificationUseCase) {}
 
     handle(req:Request, res: Response): Response{
         const specifications = this.listSpecificationUseCase.execute()
