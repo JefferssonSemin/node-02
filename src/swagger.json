@@ -1,0 +1,70 @@
+{
+    "openapi":"3.0.0",
+    "info":{
+        "title":"TestConfiguration",
+        "description":"OpenApi auto-generated at -timestamp- for TestConfiguration (xxx)",
+        "version":"1.0.0",
+        "contact":{
+            "email":"test@example.com"
+        }
+    },
+    "paths":{
+        "/categories":{
+            "post":{
+                "tags":["Category"],
+                "summary":"Create a new category",
+                "description":"Create a new category",
+                "requestBody":{
+                    "content":{
+                        "application/json":{
+                            "schema":{
+                                "type":"object",
+                                "properties":{
+                                    "name":{
+                                        "type":"string"
+                                    },
+                                    "description":{
+                                        "type":"string"
+                                    }
+                                },
+                                "example":{
+                                    "name":"My New Category",
+                                    "description":"My New Category"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "get":{
+                "tags":["Category"],
+                "summary":"Get a category",
+                "description":"Get a category",
+                "responses":{
+                    "200":{
+                        "description":"OK",
+                        "content":{
+                            "application/json":{
+                                "schema":{
+                                    "type":"object",
+                                    "items":{
+                                        "type":"string",
+                                        "properties":{
+                                            "name":{
+                                                "type":"string"
+                                        },
+                                        "description":{
+                                            "type":"string"
+                                        }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        
+    }
+}
