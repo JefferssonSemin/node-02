@@ -6,6 +6,7 @@ import { Specification } from '../modules/cars/entities/Specification'
 import { createCategory1661954139575 } from './migrations/1661954139575-create-category'
 import { createSpecification1661968399071 } from './migrations/1661968399071-create-specification'
 import { createUsers1662057959496 } from './migrations/1662057959496-create-users'
+import { alterUserDeleteName1662060865849 } from './migrations/1662060865849-alter-user-delete-name'
 
 export const AppDataSource = new DataSource({
     type: "postgres",
@@ -16,7 +17,9 @@ export const AppDataSource = new DataSource({
     database: "node02",
     synchronize: false,
     entities: [ Category, Specification, User],
-    migrations: [createCategory1661954139575, createSpecification1661968399071, createUsers1662057959496]
+    migrations: [createCategory1661954139575, createSpecification1661968399071, createUsers1662057959496,
+        alterUserDeleteName1662060865849
+    ]
 })
 
 AppDataSource.initialize()
