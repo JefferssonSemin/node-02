@@ -1,9 +1,11 @@
 
 import {DataSource} from 'typeorm'
+import { User } from '../modules/accounts/entities/User'
 import { Category } from '../modules/cars/entities/Category'
 import { Specification } from '../modules/cars/entities/Specification'
 import { createCategory1661954139575 } from './migrations/1661954139575-create-category'
 import { createSpecification1661968399071 } from './migrations/1661968399071-create-specification'
+import { createUsers1662057959496 } from './migrations/1662057959496-create-users'
 
 export const AppDataSource = new DataSource({
     type: "postgres",
@@ -13,8 +15,8 @@ export const AppDataSource = new DataSource({
     password: "docker",
     database: "node02",
     synchronize: false,
-    entities: [ Category, Specification],
-    migrations: [createCategory1661954139575, createSpecification1661968399071]
+    entities: [ Category, Specification, User],
+    migrations: [createCategory1661954139575, createSpecification1661968399071, createUsers1662057959496]
 })
 
 AppDataSource.initialize()
