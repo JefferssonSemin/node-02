@@ -20,7 +20,7 @@ class SpecificationRepository implements ISpecificationRepository{
         description
     })
 
-    this.specificationRepository.save(specification)
+        await this.specificationRepository.save(specification)
     }
 }
 

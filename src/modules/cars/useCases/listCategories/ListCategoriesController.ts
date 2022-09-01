@@ -5,10 +5,10 @@ import { ListCategoriesUseCase } from './ListCategoriesUseCase'
 
 class ListCategoriesController {
 
-    handle(req: Request, res: Response): Response{
+    async handle(req: Request, res: Response): Promise<Response>{
         
         const listCategoriesUseCase = container.resolve(ListCategoriesUseCase)
-        const categories = listCategoriesUseCase.execute()
+        const categories = await listCategoriesUseCase.execute()
       
         return res.json(categories)
     }

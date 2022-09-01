@@ -10,8 +10,12 @@ class CreateCategoryController {
 
         const createCategoryUseCase = container.resolve(CreateCategoryUseCase)
     
+        try{
         await createCategoryUseCase.execute({name, description})
-      
+        }catch(err: any){
+            return res.status(400).json({message: err.message})
+        }
+
         return res.status(201).send()
     }
 }

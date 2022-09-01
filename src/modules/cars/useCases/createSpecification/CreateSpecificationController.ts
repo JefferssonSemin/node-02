@@ -6,12 +6,17 @@ import { CreateSpecificationUseCase } from "./CreateSpecificationUseCase";
 class  CreateSpecificationController {
     constructor() {}
 
-    handle(req: Request, res: Response): Response{
+    async handle(req: Request, res: Response): Promise<Response>{
         const {name, description } = req.body
 
         const createSpecificationUseCase = container.resolve(CreateSpecificationUseCase)
         
-        createSpecificationUseCase.execute({name, description})
+        try{
+        await createSpecificationUseCase.execute({name, description})
+        }catch(err: any){
+        return res.status(400).json({message: err.message})
+        }    
+
       
         return res.status(201).send()
     }

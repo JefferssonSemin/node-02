@@ -15,9 +15,9 @@ class ImportCategoryUseCase {
         @inject("CategoriesRepository")
         private categoriesRepository: CategoriesRepository) {}
 
-    loadCategories(file: Express.Multer.File | undefined) : Promise<IImportCategory[]>{
+    async loadCategories(file: Express.Multer.File) : Promise<IImportCategory[]>{
        return new Promise((resolve, reject) => {
-        const stream = fs.createReadStream(file!.path)
+        const stream = fs.createReadStream(file.path)
         const categories: IImportCategory[] = []
 
         const parseFile = parse()
@@ -31,7 +31,7 @@ class ImportCategoryUseCase {
             })
         })
         .on('end', ()=>{  
-            fs.promises.unlink(file!.path)
+            fs.promises.unlink(file.path)
             resolve(categories)
         })
         .on('error', (err)=>{
@@ -40,16 +40,16 @@ class ImportCategoryUseCase {
        })
     }
 
-    async execute(file: Express.Multer.File | undefined): Promise<void> {
+    async execute(file: Express.Multer.File): Promise<void> {
         const categories = await this.loadCategories(file)
         
         categories.map(async (category)=>{  
         const {name, description} = category
 
-        const categoryExists = this.categoriesRepository.findByName(name)
+        const categoryExists = await this.categoriesRepository.findByName(name)
 
         if (!categoryExists)
-            this.categoriesRepository.create({name, description})
+            await this.categoriesRepository.create({name, description})
 
         })
     }

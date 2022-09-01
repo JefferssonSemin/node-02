@@ -5,11 +5,11 @@ import { ListSpecificationUseCase } from "./ListSpecificationUseCase";
 
 class ListSpecificationController {
 
-    handle(req:Request, res: Response): Response{
+    async handle(req:Request, res: Response): Promise<Response>{
 
         const listSpecificationUseCase = container.resolve(ListSpecificationUseCase)
 
-        const specifications = listSpecificationUseCase.execute()
+        const specifications = await listSpecificationUseCase.execute()
 
         return res.status(200).json(specifications)
     }
