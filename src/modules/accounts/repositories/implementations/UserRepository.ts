@@ -5,7 +5,7 @@ import {AppDataSource} from "../../../../database/data-source"
 import { User } from "../../entities/User";
 
 class UserRepository implements IUserRepository{
-    
+ 
     private userRepository = AppDataSource.getRepository(User)
     
     async create({name, email, password, driver_license}: ICreateUserDTO): Promise<void> {
@@ -16,6 +16,11 @@ class UserRepository implements IUserRepository{
 
         await this.userRepository.save(user);
     }
+
+    async findByEmail(email: string): Promise<User | null> {
+        return await this.userRepository.findOne({ where: { email: email } });
+    }
+    
 }
 
 export {UserRepository}
