@@ -11,12 +11,8 @@ class ImportCategoryController {
      
      if(file === undefined)
      return res.status(400).send({error: 'File is undefined'})
-
-     try{
+     
      await importCategoryUseCase.execute(file!)
-     }catch(err: any){
-        return res.status(400).json({message: err.message})
-     }
  
      return res.status(200).send()
     }
