@@ -1,3 +1,10 @@
+## Node 02
+
+*** The app is a study technology project on the JS stack ***
+
+# How to run
+
+
 # Cadastro de carro
 
 **RF** => Requisitos funcionais
