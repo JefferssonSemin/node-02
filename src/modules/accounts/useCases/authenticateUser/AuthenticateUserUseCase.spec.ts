@@ -1,7 +1,9 @@
-import { AppError } from "../../../../errors/AppError"
-import { ICreateUserDTO } from "../../dtos/ICreateUserDTO"
-import { UserRepositoryInMemory } from "../../repositories/in-memory/UserRepositoryInMemory"
+
+import { AppError } from "@errors/AppError"
+import { ICreateUserDTO } from "@modules/accounts/dtos/ICreateUserDTO"
+import { UserRepositoryInMemory } from "@modules/accounts/repositories/in-memory/UserRepositoryInMemory"
 import { CreateUserUseCase } from "../createUser/CreateUserUseCase"
+
 import { AuthenticateUserUseCase } from "./AuthenticateUserUseCase"
 
 let authenticateUserUseCase: AuthenticateUserUseCase
@@ -47,4 +49,21 @@ describe("Authenticate a user", () => {
         }).rejects.toBeInstanceOf(AppError)
     })
 
+    it("should not be able to authenticate a user with wrong password", async ()=>{
+        expect(async () => {
+            const user: ICreateUserDTO = {
+                driver_license: "001384",
+                email: "user@example.example",
+                password: "12345",
+                name: "User test"
+            }
+
+            await createUserUseCase.execute(user)
+
+            await authenticateUserUseCase.execute({
+                email: user.email,
+                password: "incorrect password" 
+            })
+        }).rejects.toBeInstanceOf(AppError)
+    })
 })
