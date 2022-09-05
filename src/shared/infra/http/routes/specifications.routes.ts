@@ -1,8 +1,10 @@
 import {Router} from 'express'
+
+import { CreateSpecificationController } from '@modules/cars/useCases/createSpecification/CreateSpecificationController'
+import { ListSpecificationController } from '@modules/cars/useCases/listSpecifications/ListSpecificationController'
 import { ensureAuthenticated } from '../middlewares/ensureAuthenticated'
 
-import { CreateSpecificationController } from '../modules/cars/useCases/createSpecification/CreateSpecificationController'
-import { ListSpecificationController } from '../modules/cars/useCases/listSpecifications/ListSpecificationController'
+
 
 const specificationRoutes = Router()
 
