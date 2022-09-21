@@ -8,7 +8,7 @@ export class createCars1662418269211 implements MigrationInterface {
             columns: [
                 {
                     name: "id",
-                    type: "int",
+                    type: "uuid",
                     isPrimary: true,
                 },
                 {

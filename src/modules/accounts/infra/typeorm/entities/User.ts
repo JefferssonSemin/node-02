@@ -20,6 +20,9 @@ class User {
     driver_license:string
 
     @Column()
+    license_plate: string
+
+    @Column()
     isAdmin:boolean
 
     @Column()
