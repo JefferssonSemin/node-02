@@ -18,7 +18,7 @@ describe('Create car', ()=>{
             name: 'test',
             description: 'test',
             daily_rate: 100,
-            licence_plate:"abc",
+            license_plate:"abc",
             fine_amount: 40, 
             brand: "asdas",
             category_id: "category"
@@ -33,7 +33,7 @@ describe('Create car', ()=>{
                 name: 'car1',
                 description: 'test',
                 daily_rate: 100,
-                licence_plate: "abc",
+                license_plate: "abc",
                 fine_amount: 40,
                 brand: "asdas",
                 category_id: "category"
@@ -43,7 +43,7 @@ describe('Create car', ()=>{
                 name: 'test',
                 description: 'test',
                 daily_rate: 100,
-                licence_plate: "abc",
+                license_plate: "abc",
                 fine_amount: 40,
                 brand: "asdas",
                 category_id: "category"
@@ -57,7 +57,7 @@ describe('Create car', ()=>{
                 name: 'car available',
                 description: 'aaa',
                 daily_rate: 100,
-                licence_plate: "aaaa",
+                license_plate: "aaaa",
                 fine_amount: 60,
                 brand: "brand",
                 category_id: "category"

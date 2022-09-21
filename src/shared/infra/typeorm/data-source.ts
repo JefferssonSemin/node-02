@@ -9,6 +9,7 @@ import { createUsers1662057959496 } from './migrations/1662057959496-create-user
 import { alterUserDeleteName1662060865849 } from './migrations/1662060865849-alter-user-delete-name'
 import { alterUserAddAvatar1662146984544 } from './migrations/1662146984544-alter-user-add-avatar'
 import { createCars1662418269211 } from './migrations/1662418269211-create-cars'
+import { Car } from '@modules/cars/infra/typeorm/entities/Car'
 
 export const AppDataSource = new DataSource({
     type: "postgres",
@@ -18,7 +19,7 @@ export const AppDataSource = new DataSource({
     password: "docker",
     database: "node02",
     synchronize: false,
-    entities: [ Category, Specification, User],
+    entities: [ Category, Specification, User, Car],
     migrations: [createCategory1661954139575, createSpecification1661968399071, createUsers1662057959496,
         alterUserDeleteName1662060865849, alterUserAddAvatar1662146984544, createCars1662418269211
     ]
