@@ -11,4 +11,8 @@ router.use("/specifications", specificationRoutes)
 router.use("/users", usersRoutes)
 router.use(authenticateRoutes)
 
+router.use("/health", (req, res) => {
+  return res.json("health")
+})
+
 export {router}
